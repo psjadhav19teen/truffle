@@ -1,0 +1,52 @@
+npm install -g truffle
+>truffle version
+>mkdir MetaCoin
+>cd MetaCoin
+>truffle unbox metacoin
+>truffle init
+
+contracts/MetaCoin.sol
+contracts/ConvertLib.sol
+migrations/1_deploy_contract.js
+test/TestMetaCoin.sol
+test/metacoin.js
+open truffle-config.js
+
+  
+>truffle test ./test/TestMetaCoin.sol
+>truffle test ./test/metacoin.js
+>truffle test
+>trufle compile
+>truffle develop
+>truffle migrate
+----------------------------
+
+Install Ganache
+Open truffle-config.js
+replace content
+
+module.exports={
+networks:{
+development:{
+host:"127.0.0.1",
+port:7545,
+network_id="*"
+}
+}
+};
+
+>truffle migrate
+>truffle console
+truffle (development)>
+
+-----------------------------
+
+truffle (development)>let balance=await instance.getBalance(Accounts[0])
+truffle (development)>balance.toNumber()
+truffle (development)>let ether=await instance.getBalance(Accounts[0])
+truffle (development)>ether.toNumber()
+truffle (development)>instance.sendCoin(accounts[1],500)
+truffle (development)>let received=await instance.getBalance(Accounts[1])
+truffle (development)>received.toNumber()
+truffle (development)>let newBalance=await instance.getBalance(Accounts[0])
+truffle (development)>newBalance.toNumber()
